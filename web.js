@@ -2,9 +2,9 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-var buffer = new Buffer;
+var content = fs.readFileSync('index.html');
 
-buffer = fs.readFileSync('index.html');
+var buffer = new Buffer(content);
 
 app.get('/', function(request, response) {
   response.send(buffer.toString);
